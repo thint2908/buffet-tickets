@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8882a82c7e7244e38c68572056152b4a" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="QuanLyDonHangModel.BuffetTicket" Width="1.5" PointX="0.75" PointY="5" />
+        <EntityTypeShape EntityType="QuanLyDonHangModel.BuffetTicketMenuItem" Width="1.5" PointX="3" PointY="5.375" />
+        <EntityTypeShape EntityType="QuanLyDonHangModel.BuffetTicketTimeSlot" Width="1.5" PointX="4" PointY="8" />
+        <EntityTypeShape EntityType="QuanLyDonHangModel.CategoryFood" Width="1.5" PointX="1.25" PointY="8.25" />
+        <EntityTypeShape EntityType="QuanLyDonHangModel.Employee" Width="1.5" PointX="3.75" PointY="1.125" />
+        <EntityTypeShape EntityType="QuanLyDonHangModel.MenuItem" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="QuanLyDonHangModel.Order" Width="1.5" PointX="5.875" PointY="4.625" />
+        <EntityTypeShape EntityType="QuanLyDonHangModel.ServingTable" Width="1.5" PointX="8.125" PointY="8.25" />
+        <EntityTypeShape EntityType="QuanLyDonHangModel.Shift" Width="1.5" PointX="5.75" PointY="1.125" />
+        <EntityTypeShape EntityType="QuanLyDonHangModel.Tax" Width="1.5" PointX="7.75" PointY="1.125" />
+        <AssociationConnector Association="QuanLyDonHangModel.FK_BuffetTicketMenuItem_BuffetTicket" />
+        <AssociationConnector Association="QuanLyDonHangModel.FK_BuffetTicketTimeSlot_BuffetTicket" />
+        <AssociationConnector Association="QuanLyDonHangModel.FK_Orders_BuffetTicket" />
+        <AssociationConnector Association="QuanLyDonHangModel.FK_BuffetTicketMenuItem_MenuItem" />
+        <AssociationConnector Association="QuanLyDonHangModel.FK_MenuItem_CategoryFood" />
+        <AssociationConnector Association="QuanLyDonHangModel.FK_Orders_Employee" />
+        <AssociationConnector Association="QuanLyDonHangModel.FK_Orders_ServingTable" />
+        <EntityTypeShape EntityType="QuanLyDonHangModel.OrderItem" Width="1.5" PointX="8.25" PointY="5.25" />
+        <AssociationConnector Association="QuanLyDonHangModel.FK_OrderItem_Orders" />
+        <EntityTypeShape EntityType="QuanLyDonHangModel.Payment" Width="1.5" PointX="10.125" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="QuanLyDonHangModel.FK_Payment_Employee" />
+        <AssociationConnector Association="QuanLyDonHangModel.FK_Payment_Orders" />
+        <AssociationConnector Association="QuanLyDonHangModel.FK_Payment_Shift" />
+        <EntityTypeShape EntityType="QuanLyDonHangModel.OrderTax" Width="1.5" PointX="10.75" PointY="7" />
+        <AssociationConnector Association="QuanLyDonHangModel.FK_OrderTax_Orders" />
+        <AssociationConnector Association="QuanLyDonHangModel.FK_Payment_OrderTax" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

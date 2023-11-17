@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Thể Loại Món Ăn";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Content/Admin/assets/js/main/category-food.js" defer></script>
+
+<div class="container-full">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="d-flex align-items-center">
+            <div class="me-auto">
+                <h3 class="page-title">@ViewBag.Title</h3>
+                <div class="d-inline-block align-items-center">
+                    <nav>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="/Admin"><i class="mdi mdi-home-outline"></i></a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="box">
+                    <div class="box-header" style="padding-bottom: 10px;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p style="margin: 0;"><b>@ViewBag.CategoryFoodCount</b> @ViewBag.Title</p>
+                                <p style="margin: 0;">Hiện tại đang có <b class="number-cate"></b> @ViewBag.Title trong hệ thống</p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-end pb-15">
+                                    <button class="btn btn-primary btn-md btn-category-food-refresh" type="button"> <span><i class="fa fa-refresh"></i> Đồng Bộ</span></button>
+                                    <button class="btn btn-success btn-md btn-category-food-create" type="button" data-bs-toggle="modal" data-bs-target="#modal-category-food-create"> <span><i class="fa fa-plus"></i> Thêm Mới</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="table-responsive">
+                            @Html.Partial("List")
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        @Html.Partial("Details")
+        @Html.Partial("Create")
+        @Html.Partial("Edit")
+        @Html.Partial("Delete")
+    </section>
+    <!-- /.content -->
+</div>
+

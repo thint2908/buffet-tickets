@@ -1,0 +1,38 @@
+﻿<!--Loader-->
+<div class="loader">
+    <div class="cssload-container">
+        <div class="cssload-circle"></div>
+        <div class="cssload-circle"></div>
+    </div>
+</div>
+
+<!--Header-->
+<header id="main-navigation" style="margin-top: 10px;">
+    <div id="navigation" data-spy="affix" data-offset-top="20">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-default">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                    data-target="#fixed-collapse-navbar" aria-expanded="false">
+                                <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span>
+                                <span class="icon-bar bottom-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="/Home"><img src="~/Content/User/images/logo.png" alt="logo" class="img-responsive"></a>
+                        </div>
+                        <div id="fixed-collapse-navbar" class="navbar-collapse collapse navbar-right">
+                            <ul class="nav navbar-nav" style="font-weight: bold;">
+                                <li><a href="/Home">Trang Chủ</a></li>
+                                <li><a href="/Menu">Thực Đơn</a></li>
+                                <li><a href="/Admin/Home/Login" style="color: #e25111;" id="login">Đăng Nhập</a></li>
+                                <li><a href="/Admin" style="color: #e25111;" id="username_header"></a></li>
+                                <li><a href="#" onclick="removeSession()" style="color: #e25111; display: none;" id="logout">Đăng Xuất</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Thông Tin Bàn Phục Vụ";
+}
+
+<!-- Modal Details-->
+<div class="modal fade" id="modal-serving-table-details" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">@ViewBag.Title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <span id="detailsStatus" class="badge"></span>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="">Mã Bàn Phục Vụ</label>
+                            <input type="number" class="form-control" id="detailsServingTableCode" name="ServingTableCode" placeholder="Nhập Mã Bàn Phục Vụ">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Sức Chứa</label>
+                            <input type="number" class="form-control" id="detailsCapacity" name="capacity" placeholder="Nhập Sức Chứa bàn Phục Vụ">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Mô Tả</label>
+                    <textarea class="form-control" id="detailsDescription" name="Description" rows="5" cols="30"></textarea>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="">Thời Gian Tạo</label>
+                            <input type="text" id="detailCreatedAt" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Thời Gian Cập Nhật</label>
+                            <input type="text" id="detailsUpdatedAt" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="alert alert-danger" style="padding: 10px 10px; border-radius: 5px; display: none;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="alert alert-success" style="padding: 10px 10px; border-radius: 5px; display: none;">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer modal-footer-uniform">
+                <button type="button" class="btn btn-md btn-default" data-bs-dismiss="modal">Thoát</button>
+                <button type="button" class="btn btn-md btn-edit btn-primary float-end">Chỉnh Sửa</button>
+                <button type="button" class="btn btn-md btn-delete btn-danger float-end">Thùng Rác</button>
+            </div>
+        
+        </div>
+    </div>
+</div>
+<!-- /.modal -->

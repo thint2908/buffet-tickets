@@ -1,0 +1,25 @@
+﻿@*@using (Html.BeginForm("Delete", "CategoryFood", FormMethod.Post, new { id = "from-category-food-delete" }))
+{*@
+    <!-- Modal Delete-->
+    <div class="modal fade" id="modal-category-food-delete" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Xóa Thể Loại Món Ăn</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div style="display: none;">
+                        <input type="hidden" id="delete-id" name="id">
+                    </div>
+                    <p style="font-size: 14px;">Bạn có chắc chắn muốn xóa dữ liệu không?</p>
+                </div>
+                <div class="modal-footer modal-footer-uniform">
+                    <button type="button" class="btn btn-md btn-default" data-bs-dismiss="modal">Thoát</button>
+                    <button type="submit" value="Delete" class="btn btn-md btn-danger float-end btn-delete">Thùng Rác</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.modal -->
+@*}*@

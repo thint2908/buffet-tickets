@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewBag.Title = "Thông Tin Món Ăn";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Content/Admin/assets/js/main/menu-item-create.js" defer></script>
+
+<div class="container-full">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="d-flex align-items-center">
+            <div class="me-auto">
+                <h3 class="page-title">@ViewBag.Title</h3>
+                <div class="d-inline-block align-items-center">
+                    <nav>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="/Admin"><i class="mdi mdi-home-outline"></i></a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h4 class="box-title">Thêm @ViewBag.Title</h4>
+                    </div>
+                    <div class="box-body">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="fw-700 fs-16 form-label">Tên Món Ăn</label>
+                                        <input type="text" class="form-control" id="create-name" name="name" placeholder="Nhập Tên Món Ăn">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="fw-700 fs-16 form-label">Thể Loại Món Ăn</label>
+                                        <select class="form-select" id="create-category_food_id" name="category_food_id">
+                                            <option disabled selected value="">Vui Lòng Chọn Thể Loại Món Ăn</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="fw-700 fs-16 form-label">Giá Món Ăn</label>
+                                        <input type="number" class="form-control" id="create-price" name="price" placeholder="Nhập Giá Tiền">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="fw-700 fs-16 form-label">Trạng Thái Món Ăn</label>
+                                        <div class="radio-list" style="padding-top: 5px;">
+                                            <label class="radio-inline p-0 me-10">
+                                                <input type="radio" id="create-status-0" name="status" checked="checked" value="0">
+                                                <label for="create-status-0">Chưa Mở Bán</label>
+                                            </label>
+                                            <label class="radio-inline p-0 me-10">
+                                                <input type="radio" id="create-status-1" name="status" value="1">
+                                                <label for="create-status-1">Mở Bán</label>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="fw-700 fs-16 form-label">Hình Món Ăn</label>
+                                        <input type="file" class="form-control" id="create-image" name="ImageUpload" accept="image/*" onchange="readUrl(this);">
+                                    </div>
+                                    <div class="product-img text-start">
+                                        <img src="~/Content/Admin/assets/images/product/product-9.png" id="view-image" alt="" height="210" width="210">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="msg-danger alert alert-danger position-absolute mt-1" style="padding: 10px 10px; border-radius: 5px; display: none; width: fit-content;">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="msg-success alert alert-success position-absolute mt-1" style="padding: 10px 10px; border-radius: 5px; display: none; width:fit-content;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="fw-700 fs-16 form-label">Mô Tả Món Ăn</label>
+                                        <textarea class="form-control p-15" id="create-description" name="description" rows="4"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions mt-10">
+                            
+                            <button id="btn-menu-item-create" type="submit" value="Create" class="btn btn-success btn-md float-end"> <i class="fa fa-check"></i> Thêm Mới</button>
+                            <button type="button" class="btn btn-default btn-md"><i class="fa fa-chevron-left"></i> <a href="/Admin/MenuItem" style="color: black;">Quay Về</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>

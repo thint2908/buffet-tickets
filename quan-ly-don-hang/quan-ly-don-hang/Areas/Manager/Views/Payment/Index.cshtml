@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Quản Lý Thanh Toán";
+    Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-full">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="d-flex align-items-center">
+            <div class="me-auto">
+                <h3 class="page-title">@ViewBag.Title</h3>
+                <div class="d-inline-block align-items-center">
+                    <nav>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="/Manager"><i class="mdi mdi-home-outline"></i></a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="box">
+                    <div class="box-header" style="padding-bottom: 10px; padding-top: 10px;">
+                        <div class="row">
+                            <div class="col-md-6">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-end">
+                                    <button class="btn btn-primary btn-md btn-payment-refresh" type="button"> <span><i class="fa fa-refresh"></i> Đồng Bộ</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="table-responsive">
+                            <table class="table mt-0 table-hover no-wrap" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Mã HĐ</th>
+                                        <th>Mã Bàn</th>
+                                        <th>Vé Buffet</th>
+                                        <th>Giá Vé</th>
+                                        <th>Giá Giảm</th>
+                                        <th>Trạng Thái</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Mã HĐ</th>
+                                        <th>Mã Bàn</th>
+                                        <th>Vé Buffet</th>
+                                        <th>Giá Vé</th>
+                                        <th>Giá Giảm</th>
+                                        <th>Trạng Thái</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody id="payments">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="~/Content/Manager/js/payment.js" defer></script>

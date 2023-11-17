@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Trang Chủ Quản Lí Hệ Thống";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Content/Admin/assets/js/main/order.js" defer></script>
+
+<div class="container-full">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="d-flex align-items-center">
+            <div class="me-auto">
+                <h3 class="page-title">@ViewBag.Title</h3>
+                <div class="d-inline-block align-items-center">
+                    <nav>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="/Manager"><h4><i class="mdi mdi-home-outline"></i>Manager</h4></a>
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="box">
+                    <div class="box-header" style="padding-bottom: 10px;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 style="margin: 0;">Chọn Chức Năng Để Hiển Thị Thông tin</h3>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="table-responsive">
+                            @* @Html.Partial("List") *@
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        @* @Html.Partial("Details")
+        @Html.Partial("Create")
+        @Html.Partial("Edit")
+        @Html.Partial("Delete") *@
+    </section>
+    <!-- /.content -->
+</div>

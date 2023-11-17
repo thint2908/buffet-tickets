@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Thể Loại Món Ăn";
+}
+
+<!-- Modal Details-->
+<div class="modal fade" id="modal-category-food-details" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">@ViewBag.Title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group m-0 p-0" style="display: none;">
+                    <input type="hidden" class="form-control" id="details-id" name="id">
+                </div>
+                <div class="form-group">
+                    <label for="">@ViewBag.Title</label>
+                    <input type="text" class="form-control" id="details-name" name="name" placeholder="Nhập @ViewBag.Title" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="">Mô Tả</label>
+                    <textarea class="form-control" id="details-description" name="description" rows="5" cols="30"></textarea>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="">Thời Gian Tạo</label>
+                            <input type="text" id="details-created_at" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Thời Gian Cập Nhật</label>
+                            <input type="text" id="details-updated_at" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="alert alert-danger" style="padding: 10px 10px; border-radius: 5px; display: none;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="alert alert-success" style="padding: 10px 10px; border-radius: 5px; display: none;">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer modal-footer-uniform">
+                <button type="button" class="btn btn-md btn-default" data-bs-dismiss="modal">Thoát</button>
+                <button type="button" class="btn btn-md btn-category-food-edit btn-primary float-end">Chỉnh Sửa</button>
+                <button type="button" class="btn btn-md btn-category-food-delete btn-danger float-end">Thùng Rác</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- /.modal -->

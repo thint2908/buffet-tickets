@@ -1,0 +1,38 @@
+﻿
+
+@{
+    ViewBag.Title = "Thông Tin Món Ăn";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Content/Admin/assets/js/main/menu-item-details.js" defer></script>
+
+<div class="container-full">
+    <!-- Content Header (Page header) -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h4 class="box-title">Thêm</h4>
+                    </div>
+                    <div class="box-body">
+                        <div class="form-body">
+                            
+                        </div>
+                        <div class="form-actions mt-10">
+                            <button type="submit" value="Edit" class="btn btn-menu-item-edit btn-primary btn-md float-end" style="margin-left: 10px;"> <i class="fa fa-edit"></i> Chỉnh Sửa</button>
+                            <button type="submit" value="Delete" class="btn btn-menu-item-delete btn-danger btn-md float-end"> <i class="fa fa-trash"></i> Thùng Rác</button>
+                            <button type="button" class="btn btn-default btn-md"><i class="fa fa-chevron-left"></i> <a href="/Admin/MenuItem" style="color: black;">Quay Về</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+        @Html.Partial("Edit")
+        @Html.Partial("Delete")
+    </section>
+    <!-- /.content -->
+</div>
+

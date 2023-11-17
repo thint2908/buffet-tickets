@@ -1,0 +1,100 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutMenu.cshtml";
+}
+
+<main>
+    <div class="hero_in detail_page background-image" data-background="url(/Content/User/images/hero_general.jpg)" style="background-image: url(/Content/User/images/hero_general.jpg);">
+        <div class="wrapper opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
+            <div class="container">
+                <div class="main_info">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-5 col-md-6">
+                            <div class="head"><div class="score"><span>Tuyệt vời<em>2342 Đánh giá</em></span><strong>4.8</strong></div></div>
+                            <h1>Thực Đơn Món Ăn</h1>
+                            <p style="margin: 0px;">Tận hưởng thực đơn đa dạng, không lo về giá <br> Buffet là điểm đến tuyệt vời cho mọi bữa tiệc!</p>
+                        </div>
+                        <div class="col-xl-8 col-lg-7 col-md-6">
+                            <div class="buttons clearfix">
+                                <span class="magnific-gallery">
+                                    <a href="/Content/User/images/detail_1.jpg" class="btn_hero" title="Photo title" data-effect="mfp-zoom-in"><i class="icon_image"></i>View photos</a>
+                                    <a href="/Content/User/images/detail_3.jpg" title="Photo title" data-effect="mfp-zoom-in"></a>
+                                    <a href="/Content/User/images/hero_general.jpg" title="Photo title" data-effect="mfp-zoom-in"></a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="secondary_nav sticky_horizontal">
+        <div class="container">
+            <ul id="buffet-tickets"></ul>
+        </div>
+        <span></span>
+    </nav>
+
+    <div class="bg_gray">
+        <div class="container margin_detail">
+            <div class="row">
+                <div class="col-lg-12 list_menu" id="buffet-ticket-menu-items">
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<script>
+		$(document).ready(function () {
+			$('#buffet-tickets').empty();
+			$('#buffet-ticket-menu-items').empty();
+			$.ajax({
+				url: '/api/buffet-ticket',
+				method: 'GET',
+				success: function (response) {
+					if (response.Success) {
+                        console.log(response.Data)
+						$.each(response.Data, function (index, buffet_tickets) {
+							$.ajax({
+								url: '/api/buffet-ticket-menu-item',
+								method: 'GET',
+								success: function (response) {
+									if (response.Success) {
+										$('#buffet-tickets').append(`
+											<li><a class="list-group-item list-group-item-action buffet-ticket-details" href="#buffet-ticket-${buffet_tickets.BuffetTicketID}">${buffet_tickets.Name}</a></li>
+										`);
+										$('#buffet-ticket-menu-items').append(`
+											<section id="buffet-ticket-${buffet_tickets.BuffetTicketID}">
+												<h3 style="padding-bottom: 20px;">${buffet_tickets.Name} - <span style="font-size: 16px;">${buffet_tickets.Price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</span></h3>
+												<div class="row" id="buffet-ticket-menu-item-${buffet_tickets.BuffetTicketID}">
+												</div>
+											</section>
+										`);
+										$.each(response.Data, function (index, menu_items) {
+											if (buffet_tickets.BuffetTicketID == menu_items.BuffetTicket.BuffetTicketID) {
+                                                console.log(response.Data)
+
+                                                $('#buffet-ticket-menu-item-' + buffet_tickets.BuffetTicketID).append(`
+													<div class="col-md-4">
+														<a class="menu_item modal_dialog">
+															<figure><img src="/Uploads/img/${menu_items.MenuItem.Image}" data-src="/Uploads/img/${menu_items.MenuItem.Image}" alt="thumb" class="lazy" style="width: 70px; height: 70px;"></figure>
+															<h3>${menu_items.MenuItem.Name}</h3>
+															<p>${menu_items.MenuItem.CategoryFood.Name}</p>
+															<strong>${buffet_tickets.Name}</strong>
+														</a>
+													</div>
+												`);
+											}
+										});
+									}
+								}
+							});
+						});
+					}
+				}
+			});
+		});
+</script>

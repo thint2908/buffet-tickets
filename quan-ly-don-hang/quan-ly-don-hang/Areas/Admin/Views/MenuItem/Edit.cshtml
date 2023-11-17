@@ -1,0 +1,31 @@
+﻿@*<form action="/Admin/MenuItem/Edit" id="from-menu-item-edit" method="post">*@
+    <!-- Modal Edit-->
+    <div class="modal fade" id="modal-menu-item-edit" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Chỉnh Sửa Thông Tin Món Ăn</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div style="display: none;">
+                        <input type="hidden" id="edit-id" name="id">
+                        <input type="hidden" id="edit-name" name="name">
+                        <input type="hidden" id="edit-category_food_id" name="category_food_id">
+                        <input type="hidden" id="edit-price" name="price">
+                        <input type="hidden" id="edit-status" name="status">
+                        <input type="hidden" id="edit-link" name="link">
+                        <input type="file" id="edit-image" name="ImageUpload">
+                        <textarea id="edit-description" name="description"></textarea>
+                    </div>
+                    <p style="font-size: 14px;">Bạn có chắc chắn muốn chỉnh sửa dữ liệu không?</p>
+                </div>
+                <div class="modal-footer modal-footer-uniform">
+                    <button type="button" class="btn btn-md btn-default" data-bs-dismiss="modal">Thoát</button>
+                    <button id="btn-edit-confirm" type="submit" value="Edit" class="btn btn-md btn-primary float-end">Chỉnh Sửa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.modal -->
+@*</form>*@

@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bistro</title>
+
+    <link rel="shortcut icon" href="~/Content/User/images/favicon.png">
+    <link rel="apple-touch-icon" type="image/x-icon" href="~/Content/User/fooyes/img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="~/Content/User/fooyes/img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="~/Content/User/fooyes/img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="~/Content/User/fooyes/img/apple-touch-icon-144x144-precomposed.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="~/Content/User/fooyes/css/bootstrap_customized.min.css" rel="stylesheet">
+    <link href="~/Content/User/fooyes/css/style.css" rel="stylesheet">
+    <link href="~/Content/User/fooyes/css/detail-page.css" rel="stylesheet">
+    <link href="~/Content/User/fooyes/css/custom.css" rel="stylesheet">
+    <link href="~/Content/User/css/style.css" rel="stylesheet">
+
+</head>
+
+<body data-spy="scroll" data-target="#secondary_nav" data-offset="75">
+    @Html.Partial("PartialMenu/Header")
+    @RenderBody()
+    @Html.Partial("PartialMenu/Footer")
+
+    <div id="toTop" class="detail_page"></div>
+
+    <script src="~/Content/User/fooyes/js/common_scripts.min.js"></script>
+    <script src="~/Content/User/fooyes/js/common_func.js"></script>
+    <script src="~/Content/User/fooyes/assets/validate.js"></script>
+    <script src="~/Content/User/fooyes/js/sticky_sidebar.min.js"></script>
+    <script src="~/Content/User/fooyes/js/sticky-kit.min.js"></script>
+    <script src="~/Content/User/fooyes/js/specific_detail.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="~/Content/Admin/assets/js/main.js"></script>
+
+</body>
+
+</html>

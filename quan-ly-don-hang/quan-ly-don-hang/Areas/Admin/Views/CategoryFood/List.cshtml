@@ -1,0 +1,28 @@
+﻿@*@model IEnumerable<LtdFood.Context.category_food>*@
+
+<table id="tickets-cate" class="table mt-0 table-hover no-wrap" data-page-size="10">
+    <thead>
+        <tr>
+            <th style="width: 2%;">#</th>
+            <th style="width: 10%;">Tên Thể Loại</th>
+            <th style="width: 10%;">Mô Tả</th>
+            <th style="width: 10%;">Thời Gian Tạo</th>
+            <th style="width: 10%;">Thời Gian Cập Nhật</th>
+        </tr>
+    </thead>
+    <tbody id="list-category-table">
+        @*@foreach (var item in Model)
+        {
+            <tr class="btn-category-food-details" data-id="@item.id" data-name="@item.name" data-description="@item.description" data-link="@item.link" data-meta="@item.meta"
+                data-created-at="@((item.created_at != null) ? item.created_at.Value.ToString("dd/MM/yyyy") : "")"
+                data-updated-at="@((item.updated_at != null) ? item.updated_at.Value.ToString("dd/MM/yyyy") : "")">
+                <td style="font-weight: bold;">@item.id</td>
+                <td><a href="#">@item.name</a></td>
+                <td>@item.meta</td>
+                <td>@item.description</td>
+                <td>@((item.created_at != null) ? item.created_at.Value.ToString("dd/MM/yyyy") : "")</td>
+                <td>@((item.updated_at != null) ? item.updated_at.Value.ToString("dd/MM/yyyy") : "")</td>
+            </tr>
+        }*@
+    </tbody>
+</table>

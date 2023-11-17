@@ -1,0 +1,413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyDonHangModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="QuanLyDonHang" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BuffetTickets" EntityType="QuanLyDonHangModel.BuffetTicket" />
+    <EntitySet Name="BuffetTicketMenuItems" EntityType="QuanLyDonHangModel.BuffetTicketMenuItem" />
+    <EntitySet Name="BuffetTicketTimeSlots" EntityType="QuanLyDonHangModel.BuffetTicketTimeSlot" />
+    <EntitySet Name="CategoryFoods" EntityType="QuanLyDonHangModel.CategoryFood" />
+    <EntitySet Name="Employees" EntityType="QuanLyDonHangModel.Employee" />
+    <EntitySet Name="MenuItems" EntityType="QuanLyDonHangModel.MenuItem" />
+    <EntitySet Name="Orders" EntityType="QuanLyDonHangModel.Order" />
+    <EntitySet Name="ServingTables" EntityType="QuanLyDonHangModel.ServingTable" />
+    <EntitySet Name="Shifts" EntityType="QuanLyDonHangModel.Shift" />
+    <EntitySet Name="Taxes" EntityType="QuanLyDonHangModel.Tax" />
+    <AssociationSet Name="FK_BuffetTicketMenuItem_BuffetTicket" Association="QuanLyDonHangModel.FK_BuffetTicketMenuItem_BuffetTicket">
+      <End Role="BuffetTicket" EntitySet="BuffetTickets" />
+      <End Role="BuffetTicketMenuItem" EntitySet="BuffetTicketMenuItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BuffetTicketTimeSlot_BuffetTicket" Association="QuanLyDonHangModel.FK_BuffetTicketTimeSlot_BuffetTicket">
+      <End Role="BuffetTicket" EntitySet="BuffetTickets" />
+      <End Role="BuffetTicketTimeSlot" EntitySet="BuffetTicketTimeSlots" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_BuffetTicket" Association="QuanLyDonHangModel.FK_Orders_BuffetTicket">
+      <End Role="BuffetTicket" EntitySet="BuffetTickets" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BuffetTicketMenuItem_MenuItem" Association="QuanLyDonHangModel.FK_BuffetTicketMenuItem_MenuItem">
+      <End Role="MenuItem" EntitySet="MenuItems" />
+      <End Role="BuffetTicketMenuItem" EntitySet="BuffetTicketMenuItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MenuItem_CategoryFood" Association="QuanLyDonHangModel.FK_MenuItem_CategoryFood">
+      <End Role="CategoryFood" EntitySet="CategoryFoods" />
+      <End Role="MenuItem" EntitySet="MenuItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Employee" Association="QuanLyDonHangModel.FK_Orders_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ServingTable" Association="QuanLyDonHangModel.FK_Orders_ServingTable">
+      <End Role="ServingTable" EntitySet="ServingTables" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <EntitySet Name="OrderItems" EntityType="QuanLyDonHangModel.OrderItem" />
+    <AssociationSet Name="FK_OrderItem_Orders" Association="QuanLyDonHangModel.FK_OrderItem_Orders">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="OrderItem" EntitySet="OrderItems" />
+    </AssociationSet>
+    <EntitySet Name="Payments" EntityType="QuanLyDonHangModel.Payment" />
+    <AssociationSet Name="FK_Payment_Employee" Association="QuanLyDonHangModel.FK_Payment_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_Orders" Association="QuanLyDonHangModel.FK_Payment_Orders">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_Shift" Association="QuanLyDonHangModel.FK_Payment_Shift">
+      <End Role="Shift" EntitySet="Shifts" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <EntitySet Name="OrderTaxes" EntityType="QuanLyDonHangModel.OrderTax" />
+    <AssociationSet Name="FK_OrderTax_Orders" Association="QuanLyDonHangModel.FK_OrderTax_Orders">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="OrderTax" EntitySet="OrderTaxes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_OrderTax" Association="QuanLyDonHangModel.FK_Payment_OrderTax">
+      <End Role="OrderTax" EntitySet="OrderTaxes" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BuffetTicket">
+    <Key>
+      <PropertyRef Name="BuffetTicketID" />
+    </Key>
+    <Property Name="BuffetTicketID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Int32" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="BuffetTicketMenuItems" Relationship="QuanLyDonHangModel.FK_BuffetTicketMenuItem_BuffetTicket" FromRole="BuffetTicket" ToRole="BuffetTicketMenuItem" />
+    <NavigationProperty Name="BuffetTicketTimeSlots" Relationship="QuanLyDonHangModel.FK_BuffetTicketTimeSlot_BuffetTicket" FromRole="BuffetTicket" ToRole="BuffetTicketTimeSlot" />
+    <NavigationProperty Name="Orders" Relationship="QuanLyDonHangModel.FK_Orders_BuffetTicket" FromRole="BuffetTicket" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="BuffetTicketMenuItem">
+    <Key>
+      <PropertyRef Name="BuffetTicketMenuItemID" />
+    </Key>
+    <Property Name="BuffetTicketMenuItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuffetTicketID" Type="Int32" Nullable="false" />
+    <Property Name="MenuItemID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BuffetTicket" Relationship="QuanLyDonHangModel.FK_BuffetTicketMenuItem_BuffetTicket" FromRole="BuffetTicketMenuItem" ToRole="BuffetTicket" />
+    <NavigationProperty Name="MenuItem" Relationship="QuanLyDonHangModel.FK_BuffetTicketMenuItem_MenuItem" FromRole="BuffetTicketMenuItem" ToRole="MenuItem" />
+  </EntityType>
+  <EntityType Name="BuffetTicketTimeSlot">
+    <Key>
+      <PropertyRef Name="BuffetTicketTimeSlotID" />
+    </Key>
+    <Property Name="BuffetTicketTimeSlotID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuffetTicketID" Type="Int32" Nullable="false" />
+    <Property Name="DiscountPrice" Type="Int32" Nullable="false" />
+    <Property Name="StartTime" Type="Time" Precision="7" />
+    <Property Name="EndTime" Type="Time" Precision="7" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="BuffetTicket" Relationship="QuanLyDonHangModel.FK_BuffetTicketTimeSlot_BuffetTicket" FromRole="BuffetTicketTimeSlot" ToRole="BuffetTicket" />
+  </EntityType>
+  <EntityType Name="CategoryFood">
+    <Key>
+      <PropertyRef Name="CategoryFoodID" />
+    </Key>
+    <Property Name="CategoryFoodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Int32" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="MenuItems" Relationship="QuanLyDonHangModel.FK_MenuItem_CategoryFood" FromRole="CategoryFood" ToRole="MenuItem" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Birthday" Type="DateTime" Precision="0" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Int32" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Orders" Relationship="QuanLyDonHangModel.FK_Orders_Employee" FromRole="Employee" ToRole="Order" />
+    <NavigationProperty Name="Payments" Relationship="QuanLyDonHangModel.FK_Payment_Employee" FromRole="Employee" ToRole="Payment" />
+  </EntityType>
+  <EntityType Name="MenuItem">
+    <Key>
+      <PropertyRef Name="MenuItemID" />
+    </Key>
+    <Property Name="MenuItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryFoodID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Int32" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="BuffetTicketMenuItems" Relationship="QuanLyDonHangModel.FK_BuffetTicketMenuItem_MenuItem" FromRole="MenuItem" ToRole="BuffetTicketMenuItem" />
+    <NavigationProperty Name="CategoryFood" Relationship="QuanLyDonHangModel.FK_MenuItem_CategoryFood" FromRole="MenuItem" ToRole="CategoryFood" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServingTableID" Type="Int32" Nullable="false" />
+    <Property Name="BuffetTicketID" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <Property Name="PriceBuffetTicket" Type="Int32" Nullable="false" />
+    <Property Name="DiscountPrice" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="BuffetTicket" Relationship="QuanLyDonHangModel.FK_Orders_BuffetTicket" FromRole="Order" ToRole="BuffetTicket" />
+    <NavigationProperty Name="Employee" Relationship="QuanLyDonHangModel.FK_Orders_Employee" FromRole="Order" ToRole="Employee" />
+    <NavigationProperty Name="ServingTable" Relationship="QuanLyDonHangModel.FK_Orders_ServingTable" FromRole="Order" ToRole="ServingTable" />
+    <NavigationProperty Name="OrderItems" Relationship="QuanLyDonHangModel.FK_OrderItem_Orders" FromRole="Order" ToRole="OrderItem" />
+    <NavigationProperty Name="Payments" Relationship="QuanLyDonHangModel.FK_Payment_Orders" FromRole="Order" ToRole="Payment" />
+    <NavigationProperty Name="OrderTaxes" Relationship="QuanLyDonHangModel.FK_OrderTax_Orders" FromRole="Order" ToRole="OrderTax" />
+  </EntityType>
+  <EntityType Name="ServingTable">
+    <Key>
+      <PropertyRef Name="ServingTableID" />
+    </Key>
+    <Property Name="ServingTableID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServingTableCode" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Capacity" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Int32" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Orders" Relationship="QuanLyDonHangModel.FK_Orders_ServingTable" FromRole="ServingTable" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Shift">
+    <Key>
+      <PropertyRef Name="ShiftID" />
+    </Key>
+    <Property Name="ShiftID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="StartTime" Type="Time" Precision="7" />
+    <Property Name="EndTime" Type="Time" Precision="7" />
+    <Property Name="Active" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Payments" Relationship="QuanLyDonHangModel.FK_Payment_Shift" FromRole="Shift" ToRole="Payment" />
+  </EntityType>
+  <EntityType Name="Tax">
+    <Key>
+      <PropertyRef Name="TaxID" />
+    </Key>
+    <Property Name="TaxID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Int32" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
+  </EntityType>
+  <Association Name="FK_BuffetTicketMenuItem_BuffetTicket">
+    <End Type="QuanLyDonHangModel.BuffetTicket" Role="BuffetTicket" Multiplicity="1" />
+    <End Type="QuanLyDonHangModel.BuffetTicketMenuItem" Role="BuffetTicketMenuItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BuffetTicket">
+        <PropertyRef Name="BuffetTicketID" />
+      </Principal>
+      <Dependent Role="BuffetTicketMenuItem">
+        <PropertyRef Name="BuffetTicketID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BuffetTicketTimeSlot_BuffetTicket">
+    <End Type="QuanLyDonHangModel.BuffetTicket" Role="BuffetTicket" Multiplicity="1" />
+    <End Type="QuanLyDonHangModel.BuffetTicketTimeSlot" Role="BuffetTicketTimeSlot" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BuffetTicket">
+        <PropertyRef Name="BuffetTicketID" />
+      </Principal>
+      <Dependent Role="BuffetTicketTimeSlot">
+        <PropertyRef Name="BuffetTicketID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_BuffetTicket">
+    <End Type="QuanLyDonHangModel.BuffetTicket" Role="BuffetTicket" Multiplicity="1" />
+    <End Type="QuanLyDonHangModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BuffetTicket">
+        <PropertyRef Name="BuffetTicketID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="BuffetTicketID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BuffetTicketMenuItem_MenuItem">
+    <End Type="QuanLyDonHangModel.MenuItem" Role="MenuItem" Multiplicity="1" />
+    <End Type="QuanLyDonHangModel.BuffetTicketMenuItem" Role="BuffetTicketMenuItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MenuItem">
+        <PropertyRef Name="MenuItemID" />
+      </Principal>
+      <Dependent Role="BuffetTicketMenuItem">
+        <PropertyRef Name="MenuItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MenuItem_CategoryFood">
+    <End Type="QuanLyDonHangModel.CategoryFood" Role="CategoryFood" Multiplicity="1" />
+    <End Type="QuanLyDonHangModel.MenuItem" Role="MenuItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoryFood">
+        <PropertyRef Name="CategoryFoodID" />
+      </Principal>
+      <Dependent Role="MenuItem">
+        <PropertyRef Name="CategoryFoodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Employee">
+    <End Type="QuanLyDonHangModel.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="QuanLyDonHangModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ServingTable">
+    <End Type="QuanLyDonHangModel.ServingTable" Role="ServingTable" Multiplicity="1" />
+    <End Type="QuanLyDonHangModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServingTable">
+        <PropertyRef Name="ServingTableID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ServingTableID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="OrderItem">
+    <Key>
+      <PropertyRef Name="OrderItemID" />
+    </Key>
+    <Property Name="OrderItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="Cart" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Order" Relationship="QuanLyDonHangModel.FK_OrderItem_Orders" FromRole="OrderItem" ToRole="Order" />
+  </EntityType>
+  <Association Name="FK_OrderItem_Orders">
+    <End Type="QuanLyDonHangModel.Order" Role="Order" Multiplicity="1" />
+    <End Type="QuanLyDonHangModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="PaymentID" />
+    </Key>
+    <Property Name="PaymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="OrderTaxID" Type="Int32" Nullable="false" />
+    <Property Name="ShiftID" Type="Int32" Nullable="false" />
+    <Property Name="TotalPriceBuffetTicket" Type="Int32" Nullable="false" />
+    <Property Name="TotalDiscountPrice" Type="Int32" Nullable="false" />
+    <Property Name="TotalValueTax" Type="Int32" Nullable="false" />
+    <Property Name="TotalAmount" Type="Int32" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Employee" Relationship="QuanLyDonHangModel.FK_Payment_Employee" FromRole="Payment" ToRole="Employee" />
+    <NavigationProperty Name="Order" Relationship="QuanLyDonHangModel.FK_Payment_Orders" FromRole="Payment" ToRole="Order" />
+    <NavigationProperty Name="Shift" Relationship="QuanLyDonHangModel.FK_Payment_Shift" FromRole="Payment" ToRole="Shift" />
+    <NavigationProperty Name="OrderTax" Relationship="QuanLyDonHangModel.FK_Payment_OrderTax" FromRole="Payment" ToRole="OrderTax" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Payment_Employee">
+    <End Type="QuanLyDonHangModel.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="QuanLyDonHangModel.Payment" Role="Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_Orders">
+    <End Type="QuanLyDonHangModel.Order" Role="Order" Multiplicity="1" />
+    <End Type="QuanLyDonHangModel.Payment" Role="Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_Shift">
+    <End Type="QuanLyDonHangModel.Shift" Role="Shift" Multiplicity="1" />
+    <End Type="QuanLyDonHangModel.Payment" Role="Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shift">
+        <PropertyRef Name="ShiftID" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="ShiftID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="OrderTax">
+    <Key>
+      <PropertyRef Name="OrderTaxID" />
+    </Key>
+    <Property Name="OrderTaxID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="Tax" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TotalValueTax" Type="Int32" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Order" Relationship="QuanLyDonHangModel.FK_OrderTax_Orders" FromRole="OrderTax" ToRole="Order" />
+    <NavigationProperty Name="Payments" Relationship="QuanLyDonHangModel.FK_Payment_OrderTax" FromRole="OrderTax" ToRole="Payment" />
+  </EntityType>
+  <Association Name="FK_OrderTax_Orders">
+    <End Type="QuanLyDonHangModel.Order" Role="Order" Multiplicity="1" />
+    <End Type="QuanLyDonHangModel.OrderTax" Role="OrderTax" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="OrderTax">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_OrderTax">
+    <End Type="QuanLyDonHangModel.OrderTax" Role="OrderTax" Multiplicity="1" />
+    <End Type="QuanLyDonHangModel.Payment" Role="Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderTax">
+        <PropertyRef Name="OrderTaxID" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="OrderTaxID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

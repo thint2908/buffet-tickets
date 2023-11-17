@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="~/Content/Admin/assets/images/logo-icon.jpg">
+
+    <title>@ViewBag.Title - LtdFood</title>
+
+    <!-- Vendors Style-->
+    <link rel="stylesheet" href="~/Content/Admin/assets/css/vendors_css.css">
+
+    <!-- Style-->
+    <link rel="stylesheet" href="~/Content/Admin/assets/css/style.css">
+    <link rel="stylesheet" href="~/Content/Admin/assets/css/skin_color.css">
+
+</head>
+
+<body class="light-skin sidebar-mini theme-primary fixed">
+    <div class="wrapper">
+        @Html.Partial("Partial/Header")
+        @Html.Partial("Partial/Sidebar")
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            @RenderBody()
+        </div>
+        <!-- /.content-wrapper -->
+        @Html.Partial("Partial/Footer")
+    </div>
+
+    <!-- ./wrapper -->
+    <!-- Vendor JS -->
+    <script src="~/Content/Admin/assets/js/vendors.min.js"></script>
+    <script src="~/Content/Admin/assets/js/pages/chat-popup.js"></script>
+    <script src="~/Content/Admin/assets/icons/feather-icons/feather.min.js"></script>
+
+    <script src="~/Content/Admin/assets/vendor_components/datatable/datatables.min.js"></script>
+
+    <!-- EduAdmin App -->
+    <script src="~/Content/Admin/assets/js/template.js"></script>
+    <script src="~/Content/Admin/assets/js/pages/data-table.js"></script>
+
+    <script src="~/Content/Admin/assets/js/pages/toastr.js"></script>
+    <script src="~/Content/Admin/assets/js/pages/notification.js"></script>
+
+    <script src="~/Content/Admin/assets/js/pages/list.js"></script>
+
+    <script src="~/Content/Admin/assets/js/pages/toastr.js"></script>
+    <script src="~/Content/Admin/assets/js/pages/notification.js"></script>
+    <script src="~/Content/Admin/assets/js/main/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+
+    <!-- main js -->
+
+</body>
+
+</html>

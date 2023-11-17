@@ -1,0 +1,23 @@
+﻿
+
+<div class="box">
+    <div class="box-header with-border" style="padding-bottom: 1.2rem;">
+        <h4 class="box-title" style="font-size: 18px;">Thể Loại Thức Ăn</h4>
+        <p style="margin: 0;"><b>@ViewBag.CategoryFoodCount</b> Thể Loại Món Ăn</p>
+    </div>
+    <div class="box-body p-0">
+        <div class="media-list media-list-hover media-list-divided inner-user-div" style="height: 500px;">
+            @*@foreach (var item in Model)
+            {*@
+                <div class="media media-single">
+                    <div class="media-body">
+                        @*<h6>@Html.ActionLink(item.name, "CategoryFoodMenuItem", new { id = item.id })</h6>*@
+                    </div>
+                </div>
+            @*}*@
+        </div>
+    </div>
+    <div class="text-center bt-1 border-light p-10">
+        <a class="text-uppercase d-block fs-12" href="/Admin/MenuItem">Tất Cả Thể Loại</a>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Thông Tin Thực Đơn Theo Vé Buffet";
+}
+
+<!-- Modal Details-->
+<div class="modal fade" id="modal-buffet-ticket-menu-item-details" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">@ViewBag.Title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <span id="detailsStatus" class="badge"></span>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="">Tên Món Ăn</label>
+                            <input type="text" class="form-control" id="detailsBuffetTicketMenuItemNameFood" name="detailsBuffetTicketMenuItemNameFood" placeholder="Tên Món Ăn" disabled="disabled">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Tên Vé</label>
+                            <input type="text" class="form-control" id="detailsBuffetTicketMenuItemName" name="detailsBuffetTicketMenuItemName" placeholder="Tên Món Ăn Theo Vé">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="">Giá vé</label>
+                            <input type="text" id="detailsBuffetPrice" class="form-control" >
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Trạng thái</label>
+                            <select id="detailsBuffetActive" name="detailsBuffetActive" class="form-control">
+                                <option class="form-control" value="1">Đang mở</option>
+                                <option class="form-control" value="0">Đang đóng</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="">Thời Gian Tạo</label>
+                            <input type="text" id="detailsCreatedAt" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Thời Gian Cập Nhật</label>
+                            <input type="text" id="detailsUpdatedAt" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="alert alert-danger" style="padding: 10px 10px; border-radius: 5px; display: none;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="alert alert-success" style="padding: 10px 10px; border-radius: 5px; display: none;">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer modal-footer-uniform">
+                <button type="button" class="btn btn-md btn-default" data-bs-dismiss="modal">Thoát</button>
+                <button type="button" class="btn btn-md btn-edit btn-primary float-end">Chỉnh Sửa</button>
+                <button type="button" class="btn btn-md btn-delete btn-danger float-end">Thùng Rác</button>
+            </div>
+        
+        </div>
+    </div>
+</div>
+<!-- /.modal -->

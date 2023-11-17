@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "Thông Tin Món Ăn";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Content/Admin/assets/js/main/menu-item.js" defer></script>
+
+<div class="container-full">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="d-flex align-items-center">
+            <div class="me-auto">
+                <h3 class="page-title">@ViewBag.Title</h3>
+                <div class="d-inline-block align-items-center">
+                    <nav>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="/Admin"><i class="mdi mdi-home-outline"></i></a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-3">
+                @*@Html.Partial("CategoryFoodMenuItem")*@
+                <div class="box">
+                    <div class="box-header with-border" style="padding-bottom: 1.2rem;">
+                        <h4 class="box-title" style="font-size: 18px;">Thể Loại Thức Ăn</h4>
+                        <p style="margin: 0;"><b class="number-cate">t</b> Thể Loại Món Ăn</p>
+                    </div>
+                    <div class="box-body p-0">
+                        <div id="media-list-cate" class="media-list media-list-hover media-list-divided inner-user-div" style="height: 500px;">          
+                            
+                        </div>
+                    </div>
+                    <div class="text-center bt-1 border-light p-10">
+                        <a class="text-uppercase d-block fs-12" href="/Admin/MenuItem">Tất Cả Thể Loại</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="box">
+                    <div class="box-header" style="padding-bottom: 10px;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p style="margin: 0;">Hiện tại đang có <b class="number-menuItem"></b> @ViewBag.Title trong hệ thống</p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-end pb-15">
+                                    <a class="btn btn-success btn-md" style="color: white;" href="/Admin/MenuItem/Create"> <span><i class="fa fa-plus"></i> Thêm Mới</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="table-responsive">
+                            <table id="tickets-menuItem" class="table mt-0 table-hover no-wrap" data-page-size="10">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 2%;">#</th>
+                                        <th style="width: 12%;">Tên Món Ăn</th>
+                                        <th style="width: 8%; text-align: right;">Giá (VNĐ)</th>
+                                        <th style="width: 8%;">Trạng Thái</th>
+                                        <th style="width: 5%;">Thời Gian Tạo</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="list-menuItem-table">
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+     @*   @Html.Partial("Details");
+        @Html.Partial("Create");
+        @Html.Partial("Edit");
+        @Html.Partial("Delete");*@
+    </section>
+    <!-- /.content -->
+</div>
